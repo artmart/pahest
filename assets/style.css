@@ -1,0 +1,105 @@
+.popup{
+    display: none;
+    position: absolute;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+.klass-erik{
+    background-color: #cfe4ef;
+}
+#products_table table{
+    font-size: 11px;
+}
+.order_popup{
+    display: none;
+    margin-top: 10px;
+}
+table {
+    border-collapse: collapse;
+}
+
+td, th{
+    border: 1px solid black;
+}
+.clickable{
+    cursor: pointer;
+}
+.modal-footer{
+    border-top: none !important;
+}
+
+.col-md-6{
+    padding-left: 0px;
+}
+.modal-dialog{
+    width: 100%;
+}
+.clonedSection{
+    border: 1px solid black;
+    padding: 15px;
+}
+th.verticalTableHeader {
+    /* Something you can count on */
+    height: 200px;
+    white-space: nowrap;
+}
+
+th.verticalTableHeader {
+    vertical-align:middle;
+}
+th.verticalTableHeader {
+    width:1.6em;
+}
+th.verticalTableHeader div {
+    -webkit-transform:rotate(-90deg) translate(-50%, 0);
+    transform:rotate(-90deg) translate(-50%, 0);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    position:absolute;
+}
+#products_table th{
+    height: 230px;
+}
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: 0.9;
+}
+div.horizontal {
+    width: 100%;
+    overflow: auto;
+}
+
+.table-div {
+    display: table;
+    width: 100%;
+}
+
+.horizontal-div {
+    display: table-cell;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.paginate_button{
+    border: 1px solid #337ab7;
+    cursor: pointer;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 5px;
+}
+.paginate_button:hover {
+    text-decoration: none;
+}
+.dataTables_paginate {
+    padding-top: 5px;
+}
+
+body {
+  margin-top: 33px;
+}
