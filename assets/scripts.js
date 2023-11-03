@@ -317,12 +317,12 @@ $(document).ready(function(){
             }
         });
     });
-
+/*
     $(document).on('click', '#logoutBtn', function(event){
         localStorage.clear();
         window.location.href = window.location.origin;
     });
-
+*/
     $(document).on('click', '.goToMenu', function(event){
         window.location.href = window.location.origin+"/welcome/login/"+localStorage.getItem('username');
     });

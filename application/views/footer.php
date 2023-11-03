@@ -40,6 +40,12 @@
 
 
     <script src="<?=base_url() ?>/assets/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script>
+    $(document).on('click', '#logoutBtn', function(event){
+        localStorage.clear();
+        window.location.href = '<?=base_url() ?>';
+    });
+</script>
 
 </div>
 </body>
