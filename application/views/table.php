@@ -3,9 +3,9 @@ ini_set('memory_limit', '512M');
 ini_set('max_execution_time', 300);
 $this->load->view('header'); 
 
-$start = date('d/m/Y');
+//$start = date('d/m/Y');
 $end = date('d/m/Y');
-if($this->input->post('start')){$start = $this->input->post('start');}
+//if($this->input->post('start')){$start = $this->input->post('start');}
 if($this->input->post('end')){$end = $this->input->post('end');}
 /*
 $categories = $this->db->query('select distinct Category from products_landing where Category not in("null", "#N/A", "")');
@@ -92,6 +92,7 @@ if ($sale_statuses->num_rows() > 0) {
 <form id="my_form_id" class="form-horizontal" style="height: 45px; margin-top: 5px;">    
     <div class="col-md-7">
     <div class="row">
+    <?php /*
     <div class="col-md-4">
     <label for="start" class="col-sm-3 col-form-label">Սկիզբ։</label>
         <div class="input-group date col-sm-9" data-provide="datepicker1">
@@ -101,8 +102,10 @@ if ($sale_statuses->num_rows() > 0) {
             </div>
         </div>
     </div>
+    */ ?>
+
     <div class="col-md-4">
-    <label for="end" class="col-sm-3 col-form-label">Վերջ։</label>
+    <label for="end" class="col-sm-3 col-form-label">Ամսաթիվ։</label>
         <div class="input-group date col-sm-9" data-provide="datepicker1">
             <input type="text" class="form-control datepicker1" name="end" id="end" value="<?=$end;?>">
             <div class="input-group-addon">

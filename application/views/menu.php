@@ -21,29 +21,44 @@
       <a class="navbar-brand" href="/">Accurate Group</a>
     </div>
     <ul class="nav navbar-nav">
+     <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Գործարքներ
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="<?php echo base_url('orders'); ?>">Գործարքներ</a></li>
+          <li><a href="<?php echo base_url('payment'); ?>">Վճարում</a></li>
+          <li><a href="<?php echo base_url('giveback'); ?>">Ապրանքի վերադարձ</a></li>
+          <li><a href="<?php echo base_url('getproduct'); ?>">Ներմուծում</a></li>
+        </ul>
+      </li>
         
         <?php /*<li><a href="<?php echo base_url('welcome'); ?>/login/<?=$username;?>">Home</a></li>*/ ?>
         <li><a href="<?php echo base_url('products'); ?>">Ապրանքներ</a></li>
         <li><a href="<?php echo base_url('clients'); ?>">Կլիենտներ</a></li>
+    <?php /*    
         <li><a href="<?php echo base_url('orders'); ?>">Գործարքներ</a></li>
         <li><a href="<?php echo base_url('payment'); ?>">Վճարում</a></li>
+        <li><a href="<?php echo base_url('getproduct'); ?>">Ներմուծում</a></li>
         <li><a href="<?php echo base_url('giveback'); ?>">Ապրանքի վերադարձ</a></li>
+      */ ?>  
         <li><a href="<?php echo base_url('dashboard'); ?>">Աղյուսակ</a></li>
         <li><a href="<?php echo base_url('debts'); ?>">Պարտքերի աղյուսակ</a></li>
-        <li><a href="<?php echo base_url('getproduct'); ?>">Ներմուծում</a></li>
+        
         <li><a href="<?php echo base_url('dashboardnew'); ?>">Աղյուսակ (NEW)</a></li>
         
         
-      <!--
+        
+        
+
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ապրանքներ
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#" id="new_product">Նոր ապրանք</a></li>
-          <li><a href="#" id="edit_product">Փոփոխել</a></li>
+          <li><a href="<?php echo base_url('dashboard'); ?>/reports?r=product_total">Պահանջարկ (Ընդհանուր)</a></li>
+          <li><a href="<?php echo base_url('dashboard'); ?>/trends">Պահանջարկ (Trend)</a></li>
         </ul>
       </li>
-      
+       <!--     
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ապրանքներ
         <span class="caret"></span></a>

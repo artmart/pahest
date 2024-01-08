@@ -233,6 +233,7 @@
 //var_dump($this->input->post('start'));
 $were = '';
 //$if = '';
+/*
 if($this->input->post('start'))
 {
     $start = date('Y-m-d', strtotime(str_replace('/', '-', $this->input->post('start'))));
@@ -242,7 +243,7 @@ if($this->input->post('start'))
     
     //var_dump($start);
 }
-
+*/
 if($this->input->post('end'))
 {
     $end = date('Y-m-d', strtotime(str_replace('/', '-', $this->input->post('end'))));

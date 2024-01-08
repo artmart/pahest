@@ -39,6 +39,12 @@
     <!--<script src="assets/datatables/datatables.net-scroller/js/dataTables.scroller.min.js"></script>-->     
 
 
+
+    <script src="<?=base_url() ?>/assets/highcharts/highcharts.js"></script>
+    <script src="<?=base_url() ?>/assets/highcharts/highcharts-more.js"></script>
+    <script src="<?=base_url() ?>/assets/highcharts/modules/accessibility.js"></script>
+    
+    
     <script src="<?=base_url() ?>/assets/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script>
     $(document).on('click', '#logoutBtn', function(event){

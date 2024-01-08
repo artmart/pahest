@@ -26,6 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url('/assets/css/jquery-ui.min.css'); ?>">
     <!--<link href="assets/css/blog-home.css" rel="stylesheet"> -->
 
+    <link rel="stylesheet" href="<?php echo base_url('/assets/fontawesome/css/font-awesome.min.css'); ?>">
+
+
 </head>
 <body>
 <?php 

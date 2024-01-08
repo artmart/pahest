@@ -24,6 +24,33 @@ class Dashboard extends CI_Controller {
 		$this->load->database();
 	}
     
+   	public function reports()
+	{        
+	   //$this->load->view('header');
+	   $this->load->view('reports');
+       //$this->load->view('footer');
+	}
+    
+    public function reportsresults(){
+        $this->load->view('reports_results');
+    }
+    
+    
+   	public function trends()
+	{        
+	   //$this->load->view('header');
+	   $this->load->view('trends');
+       //$this->load->view('footer');
+	}
+    
+    public function trendsresults(){
+        $this->load->view('trends_results');
+    }
+    
+    
+    
+    
+    
    	public function table()
 	{        
 	   //$this->load->view('header');
@@ -414,13 +441,25 @@ class Dashboard extends CI_Controller {
 			}
 			$html .= '</table></div><div class="horizontal-div"><h3>Գործարքներ</h3>';
 			$html .= '<table class="table"><thead><th>Ապրանք</th><th>Քանակ</th><th>Գին</th><th>Ամսաթիվ</th><th>Գործարքի տեսակ</th><th>Գործ.</th></thead>';
-			$check = 0;
+			
+            
+            $check = 0;
 			$sum = 0;
 			$check_tr = false;
 			$res_sum = 0;
+            
+            
+			$check_sale = 0;
+			$sum_sale = 0;
+			$check_tr_sale = false;
+			$res_sum_sale = 0;
+            
+            $t=0;
 			foreach($orders as $order)
 			{
+			 $dt[$t] = $order->date;
 				$check_tr = false;
+                $check_tr_sale = false;
                 if($interval)
                 {
                     if(strtotime($order->date) < strtotime($datepicker_start) || strtotime($order->date) > strtotime($datepicker_end))
@@ -437,34 +476,65 @@ class Dashboard extends CI_Controller {
 							$check_tr = true;
 							$res_sum = $sum;
 						}
-						$check = strtotime($order->date);
+                        $check = strtotime($order->date);
 						$sum = $order->product_quantity * $order->daily_price;
-					}
-					else
-					{
+					}else{
 						$sum += $order->product_quantity * $order->daily_price;
 					}
+                    
 					$daily_sale = '<td>Օրավարձ</td>';
 					$price = $order->daily_price;
-				}
-				else
-				{
+                    
+				}else{
+				    
+                    
+				    if(strtotime($order->date) != $check_sale)
+					{
+					   
+                       
+                    if($check_sale != 0){
+							$check_tr_sale = true;
+							$res_sum_sale = $sum_sale;
+						}
+                        $check_sale = strtotime($order->date);
+                        $sum_sale = $order->sale_price*$order->product_quantity;
+                        
+                    }else{
+                        $sum_sale += $order->sale_price*$order->product_quantity;
+                    }
+                    
+                    //$sum_sale = $sum_sale + $order->sale_price*$order->product_quantity;
 					$daily_sale = '<td>Վաճառք</td>';
 					$price = $order->sale_price;
+                    
+                    
 				}
-				if($check_tr == true)
-				{
+				if($check_tr == true && $res_sum>0){
 					$html .= '<tr><td></td><td colspan="2">'.$res_sum.'</td><td colspan="3"></td></tr>';
 				}
+				if($check_tr_sale && $res_sum_sale>0){
+					$html .= '<tr><td></td><td colspan="2">'.$res_sum_sale.'</td><td colspan="3"></td></tr>';
+				}
+                
 				$html .= '<tr data-id="'.$order->id.'" data-product_id="'.$order->product_id.'"><td>'.$order->name.'</td><td>'.$order->product_quantity.'</td><td>'.$price.'</td><td>'.$order->date.'</td>'.$daily_sale.'<td><button class="btnEdit btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button><button class="btnDelete btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td></tr>';
-			}
+			
+            $t++;
+            }
 			$html .= '<tr><td></td><td colspan="2">'.$sum.'</td><td colspan="3"></td></tr>';
-			$html .= '</table></div><div class="horizontal-div"><h3>Վերադարձ</h3>';
+            //$html .= '<tr><td></td><td colspan="2">'.$res_sum_sale.'</td><td colspan="3"></td></tr>';
+			
+            
+            $html .= '</table></div><div class="horizontal-div"><h3>Վերադարձ</h3>';
 			$html .= '<table class="table"><thead><th>Ապրանք</th><th>Քանակ</th><th>Գին</th><th>Ամսաթիվ</th><th>Գործ.</th></thead>';
+            
+            
+            
+            
             $check = 0;
             $sum = 0;
             $check_tr = false;
             $res_sum = 0;
+            
 			foreach($givebacks_html as $giveback)
 			{
                 $this->db->where('product_id', $giveback->product_id);
