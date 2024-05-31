@@ -512,7 +512,7 @@ class Dashboard extends CI_Controller {
 				if($check_tr == true && $res_sum>0){
 					$html .= '<tr><td></td><td colspan="2">'.$res_sum.'</td><td colspan="3"></td></tr>';
 				}
-				if($check_tr_sale && $res_sum_sale>0){
+				if($check_tr_sale == true && $res_sum_sale>0){
 					$html .= '<tr><td></td><td colspan="2">'.$res_sum_sale.'</td><td colspan="3"></td></tr>';
 				}
                 
@@ -521,7 +521,7 @@ class Dashboard extends CI_Controller {
             $t++;
             }
 			$html .= '<tr><td></td><td colspan="2">'.$sum.'</td><td colspan="3"></td></tr>';
-            //$html .= '<tr><td></td><td colspan="2">'.$res_sum_sale.'</td><td colspan="3"></td></tr>';
+            $html .= '<tr><td></td><td colspan="2">'.$res_sum_sale.'</td><td colspan="3"></td></tr>';
 			
             
             $html .= '</table></div><div class="horizontal-div"><h3>Վերադարձ</h3>';

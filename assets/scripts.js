@@ -721,7 +721,17 @@ $(document).ready(function(){
             success: function(data) {
                 var product = data.data[0];
                 element.find('.product_type').text(product.type);
-                element.find('.product_quantity').attr('max' ,(product.quantity+product.new_quantity-product.daily_order));
+				//alert(product.quantity+product.new_quantity-product.daily_order);
+				
+				//var element1 = $(this);
+        //var max = element.attr('max');
+				
+                element.find('.product_quantity').attr('max',(product.quantity+product.new_quantity-product.daily_order));
+				
+				//element.find('.product_quantity').attr({'max': (product.quantity+product.new_quantity-product.daily_order)});
+				
+				//alert(element.find('.product_quantity').val());
+				
                 if(parseInt(element.find('.product_quantity').val()) > product.quantity)
                 {
                     element.find('.product_quantity').val(product.quantity);
